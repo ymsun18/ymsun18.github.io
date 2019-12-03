@@ -1,0 +1,501 @@
+html, body {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    overflow: hidden;
+    font-family: 'Roboto';
+    color: #4c5764;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+
+/***************************************************************************
+ * No code above this point needs to be touched,
+ * but feel free to experiment with it!
+ ***************************************************************************/
+
+#dashboard {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-box-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.chart-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.sidebar-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/**
+ * Part 4
+ */
+
+.info-box-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.info-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+/**
+ * Part 5
+ */
+
+
+.chart {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.small-charts-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+/***************************************************************************
+ * No code below this point needs to be touched,
+ * but feel free to experiment with it!
+ ***************************************************************************/
+
+
+
+
+/* dashboard container */
+
+.dashboard {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 15% 85%;
+    grid-template-areas:
+        "sidebar content";
+}
+
+/* sidebar */
+
+.sidebar {
+    grid-area: sidebar;
+    background-color: #fcba03;
+    width: 100%;
+    height: 100%;
+}
+
+.sidebar-item {
+    padding: 20px;
+    width: 75%;
+    color: #fff;
+    border: 1px solid #fcba03;
+    transition: all 0.15s ease;
+}
+
+.sidebar-item.highlighted {
+    background-color: #fcba03;
+    color: #fcba03;
+}
+
+.sidebar-item:hover {
+    background-color: #fff;
+    color: #6493be;
+    cursor: pointer;
+}
+
+.sidebar a {
+    color: #fff;
+    text-decoration: none;
+    background-color: #fcba03;
+    width: 100%;
+}
+
+.sidebar a .sidebar-item {
+    margin-left: 3px;
+}
+
+/* content container (everything except sidebar) */
+
+.content {
+    grid-area: content;
+    padding: 10px;
+    overflow: scroll;
+}
+
+.info-box-container {
+    z-index: 9;
+}
+
+.info-box {
+    background-color: white;
+    width: 20%;
+    height: 100px;
+    margin: 20px;
+    border-radius: 5px;
+    transition: all 0.15s ease;
+    border: 2px solid #f59d62;
+    box-shadow: 0px 2px 5px 1px #fcba03;
+}
+
+.info-box:hover {
+    border: 2px solid #7ac175;
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.info-box img {
+    width: 25%;
+}
+
+/* charts */
+
+.chart-container {
+    height: 100%;
+    width: 100%;
+    margin-top: 80px;
+    margin-left: 60px;
+}
+
+.chart {
+    transition: all 0.15s ease;
+    box-shadow: 0px 2px 5px 1px #d3d3d3;
+}
+
+.chart img {
+    width: 75%;
+}
+
+.chart a {
+    margin-top: 20px;
+    text-decoration: none;
+    transition: all 0.15s ease;
+    color: #fff;
+}
+
+.chart a:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.large-chart {
+    width: 60%;
+    height: 95%;
+    background-color: #7ac175;
+    border: 2px solid #7ac175;
+    border-radius: 5px;
+}
+
+.large-chart img {
+    width: 85%;
+}
+
+.small-charts-container {
+    width: 30%;
+    height: 95%;
+    margin-left: 40px;
+}
+
+.small-chart {
+    width: 100%;
+    height: 50vh;
+    border: 2px solid #6493be;
+    background-color: #6493be;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+.small-chart a {
+    margin-top: 10px;
+}
+
+#pictures {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 680px;
+    margin: auto;
+    text-align: center;
+}
+#pictures img {
+    width: 200px;
+    margin: 0 10px;
+    transition: 0.3s;
+}
+#pictures img:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+.hidden {
+    display: none;
+}
+#lightbox-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+.lightbox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+}
+.lightbox img {
+    width: 100%;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+.lightbox .caption {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 20px;
+    background: white;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+/**
+ * Miscellaneous things
+ */
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.question {
+    box-shadow: 0 1px 2px rgba(0,0,0,0.12);
+    background: white;
+    padding: 18px;
+    font-size: 12px;
+    margin-bottom: 6px;
+    border-radius: 2px;
+    text-align: center;
+    font-weight: 700;
+    color: #4a4a4a;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.question:hover {
+    opacity: 0.8;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.16);
+}
+
+#index {
+    width: 240px;
+    position: absolute;
+    left: calc(50% - 120px);
+    top: calc(50% - 206px);
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background: white;
+    position: fixed;
+    /* PROBLEM 1: Make the header stick to the top as you scroll */
+
+}
+
+.content {
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    /* PROBLEM 2: Align the page content to the center of the screen */
+
+}
+
+#image-banner {
+    background-image: url('../img/sf_banner.png');
+    background-size: cover;
+    width: 100%;
+    height: 600px;
+}
+
+
+#other-posts {
+    overflow: hidden;
+    margin-bottom: 100px;
+}
+
+.image-card, .image-card-color-overlay {
+    width: 380px;
+    height: 200px;
+}
+
+.image-card {
+    display: inline-block;
+    float: left;
+    overflow: hidden;
+    margin-right: 40px;
+    position: relative;
+    /* PROBLEM 3: Give .image-card the appropriate position type */
+
+}
+
+.image-card:last-child {
+    margin-right: 0;
+}
+
+.image-card img {
+    width: 100%;
+}
+
+.image-card-color-overlay {
+    position: absolute;
+    /* PROBLEM 4: Move the color overlay to cover the image properly */
+    top: 0px;
+    left: 0px;
+    /* PROBLEM 5: What should the opacity be when there is no hover? */
+    opacity: 0;
+    transition: 0.3s;
+    background-color: navy;
+}
+
+.image-card:hover .image-card-color-overlay {
+    /* PROBLEM 5: Pick an opacity for the blue hover effect */
+    opacity: 0.7;
+}
+
+.image-card-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-family: 'Mansalva', cursive;
+    /* PROBLEM 6: Similar to .image-card-cover-overlay, position the card text */
+    color: white;
+}
+
+
+/* PROBLEM 7: Improve the typography and colors of this page! */
+.hahaha {
+    font-family: 'Mansalva', cursive;
+    color: #38c8d9;
+}
+
+.lululu{
+    font-family: 'Mansalva', cursive;
+    color: #ffdc2e;
+}
+
+
+#title {
+    font-family: 'Mansalva', cursive;
+    color: black;
+}
+
+h1 {
+    text-align: center;
+    font-size: 40px;
+    font-family: 'Mansalva', cursive;
+    color: black;
+    margin-left: auto;
+    margin-right: auto;
+    color: black;
+}
+
+h2 {
+    text-align: center;
+    font-family: 'Mansalva', cursive;
+    font-size: large;
+    color: black;
+}
+
+h3 {
+    text-align: center;
+    font-family: 'Mansalva', cursive;
+
+}
+
+p {
+    text-indent: 50px;
+}
+
+
+<style>
+/* customizable snowflake styling */
+.snowflake {
+  color: #34d8eb;
+  font-size: 1em;
+  font-family: Arial, sans-serif;
+  text-shadow: 0 0 5px #000;
+}
+
+@-webkit-keyframes snowflakes-fall{0%{top:-10%}100%{top:100%}}@-webkit-keyframes snowflakes-shake{0%,100%{-webkit-transform:translateX(0);transform:translateX(0)}50%{-webkit-transform:translateX(80px);transform:translateX(80px)}}@keyframes snowflakes-fall{0%{top:-10%}100%{top:100%}}@keyframes snowflakes-shake{0%,100%{transform:translateX(0)}50%{transform:translateX(80px)}}.snowflake{position:fixed;top:-10%;z-index:9999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:default;-webkit-animation-name:snowflakes-fall,snowflakes-shake;-webkit-animation-duration:10s,3s;-webkit-animation-timing-function:linear,ease-in-out;-webkit-animation-iteration-count:infinite,infinite;-webkit-animation-play-state:running,running;animation-name:snowflakes-fall,snowflakes-shake;animation-duration:10s,3s;animation-timing-function:linear,ease-in-out;animation-iteration-count:infinite,infinite;animation-play-state:running,running}.snowflake:nth-of-type(0){left:1%;-webkit-animation-delay:0s,0s;animation-delay:0s,0s}.snowflake:nth-of-type(1){left:10%;-webkit-animation-delay:1s,1s;animation-delay:1s,1s}.snowflake:nth-of-type(2){left:20%;-webkit-animation-delay:6s,.5s;animation-delay:6s,.5s}.snowflake:nth-of-type(3){left:30%;-webkit-animation-delay:4s,2s;animation-delay:4s,2s}.snowflake:nth-of-type(4){left:40%;-webkit-animation-delay:2s,2s;animation-delay:2s,2s}.snowflake:nth-of-type(5){left:50%;-webkit-animation-delay:8s,3s;animation-delay:8s,3s}.snowflake:nth-of-type(6){left:60%;-webkit-animation-delay:6s,2s;animation-delay:6s,2s}.snowflake:nth-of-type(7){left:70%;-webkit-animation-delay:2.5s,1s;animation-delay:2.5s,1s}.snowflake:nth-of-type(8){left:80%;-webkit-animation-delay:1s,0s;animation-delay:1s,0s}.snowflake:nth-of-type(9){left:90%;-webkit-animation-delay:3s,1.5s;animation-delay:3s,1.5s}.snowflake:nth-of-type(10){left:25%;-webkit-animation-delay:2s,0s;animation-delay:2s,0s}.snowflake:nth-of-type(11){left:65%;-webkit-animation-delay:4s,2.5s;animation-delay:4s,2.5s}
+</style>
+
+/* loader flip*/
+
+.loader.three .flip-tile {
+    background: #F98527;
+    height: 100px;
+    width: 100px;
+    animation: flip 2.6s infinite;
+}
+
+@keyframes flip {
+    0% {
+      transform: perspective(300px) rotateX(180deg) rotateY(0deg);
+    }
+    50% {
+      transform: perspective(300px) rotateX(180deg) rotateY(180deg);
+    }
+    100% {
+      transform: perspective(300px) rotateX(0deg) rotateY(180deg);
+    }
+}
